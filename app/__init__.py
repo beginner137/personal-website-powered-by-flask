@@ -14,9 +14,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY') or 'whatever'
 PASSWD = os.environ.get('BLOG_PASSWD')
 POSTS_PER_PAGE = 5
 COMMENTS_PER_PAGE = 5
-BLOG_ADMIN = 'xiang_shenghua@hotmail.com' or os.environ.get('BLOG_ADMIN')
+BLOG_ADMIN = 'blog@example.com' or os.environ.get('BLOG_ADMIN')
 SSL_REDIRECT = True if os.environ.get('DYNO') else False
-GOODREADS_KEY = "UbEc2jj1ljNNhvVWVx0WTA"
 
 SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or 'sqlite:///'+os.path.join(app.root_path,'app.db')
 SQLALCHEMY_TRACK_MODIFICATIONS = False

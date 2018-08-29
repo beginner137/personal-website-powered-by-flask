@@ -6,7 +6,7 @@ import bleach
 from markdown import markdown
 
 
-default_passwd = 'pbkdf2:sha256:50000$sNWj0eD7$8eb12a33e3b3ac4c6950da82b535aced5797293dd6433ea99a4ad71e51507a03'
+default_passwd = ''
 
 registrations = db.Table('registrations',
         db.Column('post_id',db.Integer,db.ForeignKey('posts.id')),
