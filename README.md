@@ -1,6 +1,6 @@
 This is the modified source code for my personal website.
 
-You can check my site here. dorisxiang.com
+You can check my site [here](https://dorisxiang.herokuapp.com/)
 
 The python version is 3.5.5, all functions tested on a Ubuntu 16.04 machine.
 
