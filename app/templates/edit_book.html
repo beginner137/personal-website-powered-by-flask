@@ -1,0 +1,25 @@
+{% extends "base.html"%}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block page_content %}
+<script type="text/javascript" src="{{url_for('static',filename='jquery.min.js')}}"></script>
+<form class="form" method="post" role="form">
+        {{ form.hidden_tag() }}
+        {{ wtf.form_errors(form, hiddens="only") }}      
+
+        {{ wtf.form_field(form.name, class="form-control",onkeypress="return event.keyCode != 13;")}}
+        {{ wtf.form_field(form.book_url, class="form-control")}}
+        {{ wtf.form_field(form.book_image_link, class="form-control")}}
+        {{ wtf.form_field(form.author, class="form-control")}}
+        {{ wtf.form_field(form.rec_level, class="form-control")}}
+        {{ wtf.form_field(form.abstract, class="form-control comment-field", rows = 5)}}
+        {{ wtf.form_field(form.body, class="form-control comment-field", rows=10) }}
+        {{ wtf.form_field(form.public, class="form-control")}}
+        {{ wtf.form_field(form.submit,button_map ={'submit':'primary'}) }}
+</form>
+{% endblock %}
+
+{% block scripts %}
+{{super()}}
+{{pagedown.include_pagedown()}}
+{% endblock %}

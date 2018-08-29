@@ -1,0 +1,42 @@
+{% import "_macros.html" as macros %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% extends "base.html" %}
+<script type="text/javascript" src="{{url_for('static',filename='jquery-latest.min.js')}}"></script>
+
+
+{% block page_content %}
+
+{% if (session['login'] or book.public) %}
+<div class="blog-post">
+        <div class="book-title"><p>{{book.book_name}}</p></div>
+        <div class="book-info">
+        <div class="book-info-block">
+        <a href="{{book.book_url}}" style="text-align: center" ><img alt="link to goodreads" src="{{book.book_image_link}}" alt="{{book.book_name}}"/></a>
+        </div>
+        <div class="book-info-block">
+        <p>
+            Author:  {{book.author}}
+            <br/>
+            <br/>
+            Finished on {{ moment(book.timestamp).format('MMMM Do YYYY') }}, 
+            <br/>
+            recommendation level: {{book.rec_level}} out of 10
+        </p>
+        </div>
+        </div>
+        <br/>
+        <div class="book-title"><p>My Notes</p></div>
+        <div>    
+        <p class="post-abstract">
+            {% if book.body_html %}
+                {{book.body_html | safe}}
+            {% else %}
+                {{ book.body}}
+            {% endif %}
+        </p>
+        </div>
+</div><!-- /.blog-post -->
+{% endif %}
+{% endblock %}
+
+

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% import "_macros.html" as macros %}
+
+{% block head %}
+{{super()}}
+<script type="text/javascript" src="{{url_for('static',filename='jquery-latest.min.js')}}"></script>
+{% endblock %}
+
+{% block page_content %}
+
+<div class="blog-post">
+        <div class="blog-post-title">
+            <p>What I'm doing now             
+            {% if session['login'] %}
+            <a href="{{url_for('edit_now')}}">[Edit]</a>
+            {% endif %}   
+            </p>
+        </div>
+        <p class="blog-post-meta">Posted on {{content.timestamp}} </p>
+        <div>    
+        <p class="post-body">
+            {% if content.now_html %}
+                {{ content.now_html | safe}}
+            {% else %}
+                {{ content.now }}
+            {% endif %}
+        </p>
+        </div>
+           
+</div>
+{% endblock %}

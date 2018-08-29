@@ -1,0 +1,216 @@
+a:link { color : black; text-decoration : none;}
+a:visited{color:black;text-decoration: none;}
+a:hover {color : grey; text-decoration : underline;}
+
+* {box-sizing: border-box}
+body {font-family: sans-serif; margin:0}
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+
+
+/* ---------------------------------------------------
+    NAVBAR STYLE
+----------------------------------------------------- */
+
+.navbar{
+    font-family: sans-serif;
+}
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+/*Sets the text hover color on navbar*/
+    color: black;
+    text-decoration: underline; 
+}
+.navbar-inverse .navbar-nav > li > a {
+    color: #605C3C; /*Change active text color here*/
+}
+
+.navbar-inverse {
+    border:none;
+    background: white;
+    opacity: 0.7;
+}
+.navbar-inverse .navbar-brand{
+    color: #605C3C;
+}
+.navbar-inverse .navbar-brand:hover{
+    color: black;
+    text-decoration: underline; 
+}
+.navbar-inverse .navbar-toggle{
+    border:1.0px solid #605C3C;
+    background-color:white;   
+}
+.navbar-inverse .navbar-toggle:hover{
+    border:1.0px solid #605C3C;
+    background-color:lightgrey;  
+}
+.navbar-inverse .navbar-toggle .icon-bar {
+    border:1.5px solid #605C3C;
+}
+
+
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+
+.content-container{
+    margin: auto;
+    width: 60%;
+    border: none;
+    margin-top:100px;
+    padding: 30px;
+}
+@media screen and (max-width: 600px) {
+    .content-container {
+      width:100%;
+    }
+  }
+.words{
+    font-size: 1.5rem;
+    padding:10px;
+    text-align: left;
+    font-family: sans-serif;
+    color:black;
+    
+}
+/* ---------------------------------------------------
+    PAGINATION STYLE
+----------------------------------------------------- */
+
+  
+ 
+  .blog-pagination {
+    margin-bottom: 2rem;
+  }
+  .blog-pagination > .btn {
+    border-radius: 5px;
+  }
+  
+.div-pagination{
+    width:100%;
+    text-align: left;
+    padding:0px;
+    margin: 0px;
+}
+ul.pagination >li >a{
+    color: grey;
+    
+}
+
+ul.pagination > .active > a, 
+ul.pagination > .active > a:hover, 
+ul.pagination .active > a:focus {
+  background-color:grey;
+  border-color:grey;
+}
+
+/* ---------------------------------------------------
+    POST STYLE
+----------------------------------------------------- */
+
+.blog-post {
+margin-bottom: 6rem;
+font-family: sans-serif,Verdana;
+}
+.blog-post-title {
+margin-bottom: .5rem;
+font-size: 2.2rem;
+}
+.blog-post-meta {
+margin-bottom: 2.5rem;
+color: #999;
+}
+.blog-post p{
+    font-family: sans-serif;
+}
+.blog-post ul li{
+    padding: 8px;
+}
+
+hr{
+    margin-top:60px;
+    margin-bottom: 60px;
+}
+  
+/* ---------------------------------------------------
+    COMMENT STYLE
+----------------------------------------------------- */
+
+
+.comment-field{
+    resize: none;
+    outline:none;
+    overflow:auto;
+}
+
+.label-primary {
+    background-color: grey;
+    opacity:0.85;
+}
+
+/* ---------------------------------------------------
+    BOOK STYLE
+----------------------------------------------------- */
+.book-title{
+    padding:20px;
+    font-size:30px;
+    text-align: center;
+}
+.book-info{
+display:flex;
+}
+.book-info-block{
+    flex:1;
+}
+.book-info-block p{
+    font-size:15px;
+    padding:15x;
+    margin-bottom: 5px;
+}
+.book-info-block img{
+    display:block;
+    margin:auto;
+}
+/* ---------------------------------------------------
+    PHOTO STYLE
+----------------------------------------------------- */
+div.gallery {
+    margin: 10px;
+    border: 1px solid #ccc;
+    float: left;
+    width:30%;
+    
+}
+
+div.gallery:hover {
+    border: 1px solid #777;
+}
+
+div.gallery img {
+    width: 100%;
+    height: auto;
+}
+
+div.desc {
+    padding: 20px;
+    text-align: center;
+}
+
+/* ---------------------------------------------------
+    FORM STYLE
+----------------------------------------------------- */
+.login-form{
+    font-family: sans-serif, Verdana;
+    padding: 20px;
+    width:50%;
+    margin:auto;
+    border:none;
+}
+
+/* ---------------------------------------------------
+    BUTTON STYLE
+----------------------------------------------------- */
+.manage-options{
+    padding:5px;
+}

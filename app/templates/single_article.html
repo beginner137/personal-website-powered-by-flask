@@ -1,0 +1,77 @@
+{% import "_macros.html" as macros %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% extends "base.html" %}
+<script type="text/javascript" src="{{url_for('static',filename='jquery-latest.min.js')}}"></script>
+
+
+{% block page_content %}
+
+{% if (session['login'] or post.public) %}
+<div class="blog-post">
+        <h2 class="blog-post-title">{{post.title}}</h2>
+        
+        <p class="blog-post-meta">Posted on {{ moment(post.timestamp).format('MMMM Do YYYY') }} about: 
+            {% for tag in post.tags %}
+                <a href="{{url_for('tag_posts',name=tag.name)}}"><span class="label label-primary"> {{tag.name }}</span></a>
+            {% endfor %}</p>
+        <div>      
+        <p class="post-body">
+            {% if post.body_html %}
+                {{post.body_html | safe}}
+            {% else %}
+                {{ post.body}}
+            {% endif %} 
+        </p>
+        </div>
+
+        <hr/>
+            {% if comments %}
+                <div style="margin-bottom:30px;" >
+                <h4>{{post.comments.count()}}
+                    {% if post.comments.count() >=2 %}Comments
+                    {% elif post.comments.count()==1%}Comment
+                    {%elif post.comments.count() ==0 %}
+                    {% endif %}
+                </h4>
+                </div>
+
+                {% for comment in comments %}
+                <div class="panel panel-default">
+                <div class="panel-heading">
+                    <span class="label label-primary">{{comment.author}}</span> said on {{ moment(comment.timestamp).format('MMMM Do YYYY') }} 
+                </div>
+                <div class="panel-body">
+                    {% if comment.disabled %}
+                    <p style="color:red"><i><small>This comment has been disabled by the Admin.</small></i></p>
+                    {% else %}
+                    {{ comment.body }}
+                    {% endif %}
+                </div>
+                </div>
+                {% endfor %}
+                <nav class="blog-pagination"> 
+                        {% if pagination %}
+                            <div class="pagination">
+                                {{macros.pagination_widget(pagination, 'single_article',fragment='#comments',id=post.id)}}
+                            </div>
+                        {% endif %} 
+                </nav>
+                <hr/>
+        {% endif %}
+
+        <h4 >Leave a comment</h4>
+        <div>
+        <form class="comment-form" method="post" role="form">
+                {{ form.hidden_tag() }}
+                {{ wtf.form_errors(form, hiddens="only") }}      
+                {{ wtf.form_field(form.author, class="form-control") }}
+                {{ wtf.form_field(form.email, class="form-control", placeholder="Enter email here") }} 
+                {{ wtf.form_field(form.body, class="form-control comment-field", rows=2, placeholder="Leave a comment") }}
+                {{ wtf.form_field(form.submit, button_map ={'submit':'default'}) }}
+        </form>
+        </div>
+</div><!-- /.blog-post -->
+{% endif %}
+{% endblock %}
+
+

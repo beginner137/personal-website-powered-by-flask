@@ -1,0 +1,76 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}Doris Xiang{% endblock %}
+
+{% block head %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('static',filename='styles.css')}}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<!-- Font Awesome JS -->
+{% endblock %}
+
+{% block navbar %}
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{url_for('index')}}">DORIS XIANG</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                  <li><a href="{{url_for('about')}}">ABOUT</a></li>
+                  <li><a href="{{url_for('work')}}">WORK</a></li>
+                  <li><a href="{{url_for('article')}}">ARTICLE</a></li>
+                  <li><a href="{{url_for('book')}}">BOOK</a></li>
+                  <li><a href="{{url_for('photo')}}">PHOTO</a></li>
+                  <li><a href="{{url_for('now')}}">NOW</a></li>
+                  
+                </ul>
+
+                {% if session['login'] %}
+                <div class="btn-group manage-options">
+                        <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Manage Options<span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{url_for('add_post')}}">Add a New Post</a></li>
+                            <li><a href="{{url_for('add_book')}}">Add a New Book</a></li>               
+                            <li><a href="{{url_for('moderate_comments')}}">Moderate Comments</a></li>
+                            <li><a href="#">Edit Now</a></li>
+                            <li><a href="{{url_for('logout')}}">Log Out</a></li>
+                        </ul>
+                </div>
+                {% endif %}
+        </div>
+    </div>
+    <div>
+            {% for message in get_flashed_messages() %}
+            <div class="alert alert-danger">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                {{message}}
+            </div>
+            {% endfor %}
+    </div> 
+</div>
+{% endblock %}
+
+{% block content %}
+
+
+<div class="content-container">
+{% block page_content %}
+
+{% endblock %}
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+{{super()}}
+{{moment.include_moment()}}
+{% endblock %}
