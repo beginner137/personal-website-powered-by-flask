@@ -239,7 +239,7 @@ def edit_book(id):
 @app.route('/admin/now',methods=['GET','POST'])
 @admin_required
 def edit_now():
-    info = Blog.query.filter_by(email="xiang_shenghua@hotmail.com").first()
+    info = Blog.query.filter_by(email="blog@example.com").first()
     form = NowForm()
     if form.validate_on_submit():
         info.now=form.body.data
