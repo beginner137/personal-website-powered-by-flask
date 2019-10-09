@@ -1,6 +1,6 @@
 This is the modified source code for my old personal website which is not running anymore.
 
-You can check my new site [here](dorisxiang.com)
+You can check my new site [here](http://dorisxiang.com)
 
 The python version is 3.5.5, all functions tested on a Ubuntu 16.04 machine.
 
